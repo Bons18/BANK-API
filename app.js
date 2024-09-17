@@ -7,14 +7,14 @@ const app = express();
 // Conectar a la base de datos
 connectDB();
 
+// Middleware para analizar JSON
 app.use(express.json());
 
 // Definir rutas
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/cuentas', require('./routes/cuentasAhorro'));
-
-// Ruta para la raíz
+// Ruta principal
 app.get('/', (req, res) => {
   res.send('Bienvenido a la API del banco. Utiliza las rutas /api/clientes, /api/usuarios, o /api/cuentas.');
 });

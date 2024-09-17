@@ -5,35 +5,47 @@ const bcrypt = require('bcryptjs');
 const cuentaAhorroSchema = new mongoose.Schema({
     numeroCuenta: {
         type: Number,
-        required: true,
+        required: [true, 'El número de cuenta es obligatorio.'],
         unique: true
     },
     documentoCliente: {
         type: String,
-        required: true
+        required: [true, 'El documento del cliente es obligatorio.']
     },
     fechaApertura: {
         type: Date,
-        required: true
+        default: Date.now // Asigna la fecha actual si no se proporciona
     },
     saldo: {
         type: Number,
-        required: true,
-        min: [0, 'El saldo no puede ser negativo']
+        required: [true, 'El saldo es obligatorio.'],
+        min: [0, 'El saldo no puede ser negativo.']
     },
     claveAcceso: {
         type: String,
-        required: true
+        required: [true, 'La clave de acceso es obligatoria.']
     }
 });
 
-// Encriptar la clave de acceso antes de guardar
-cuentaAhorroSchema.pre('save', async function(next) {
+// Middleware pre-save para encriptar la clave de acceso
+cuentaAhorroSchema.pre('save', async function (next) {
+    // Solo encripta la clave si fue modificada o es nueva
     if (this.isModified('claveAcceso')) {
-        this.claveAcceso = await bcrypt.hash(this.claveAcceso, 10);
+        try {
+            // Genera el salt y encripta la clave
+            const salt = await bcrypt.genSalt(10);
+            this.claveAcceso = await bcrypt.hash(this.claveAcceso, salt);
+        } catch (error) {
+            return next(error); // Si hay un error, lo pasa al siguiente middleware
+        }
     }
     next();
 });
+
+// Método para comparar la clave encriptada
+cuentaAhorroSchema.methods.compararClave = async function (clave) {
+    return await bcrypt.compare(clave, this.claveAcceso); // Compara la clave ingresada con la clave encriptada
+};
 
 // Exportar el modelo
 module.exports = mongoose.models.CuentaAhorro || mongoose.model('CuentaAhorro', cuentaAhorroSchema);

@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const cuentaAhorroController = require('../controllers/cuentaAhorroController');
 
-
+// Ruta para listar todas las cuentas
 router.get('/', cuentaAhorroController.obtenerCuentas);
 
-// Ruta para listar una cuenta
+// Ruta para obtener una cuenta por número
 router.get('/:numeroCuenta', cuentaAhorroController.obtenerCuenta);
 
 // Ruta para crear una cuenta

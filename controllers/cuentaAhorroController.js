@@ -1,12 +1,12 @@
 const CuentaAhorro = require('../models/CuentaAhorro');
 
+// Obtener todas las cuentas
 exports.obtenerCuentas = async (req, res) => {
-  const body = req.body
   try {
-    const cuentas = CuentaAhorro.find(body)
-    res.status(200).json(cuentas);
+    const cuentas = await CuentaAhorro.find();
+    res.json(cuentas);
   } catch (error) {
-    res.status(500).json({ mensaje: "Error al obtener la cuentas.", error });
+    res.status(500).json({ mensaje: "Error al obtener las cuentas.", error });
   }
 };
 
@@ -24,15 +24,17 @@ exports.obtenerCuenta = async (req, res) => {
   }
 };
 
-// Crear una cuenta
+// Crear una nueva cuenta
 exports.crearCuenta = async (req, res) => {
   try {
     const { numeroCuenta, documentoCliente, fechaApertura, saldo, claveAcceso } = req.body;
 
+    // Verifica que el saldo inicial no sea negativo
     if (saldo < 0) {
       return res.status(400).json({ mensaje: "El saldo inicial no puede ser negativo." });
     }
 
+    // Verifica si la cuenta ya existe
     const cuentaExistente = await CuentaAhorro.findOne({ numeroCuenta });
     if (cuentaExistente) {
       return res.status(400).json({ mensaje: "El número de cuenta ya existe." });
@@ -43,6 +45,7 @@ exports.crearCuenta = async (req, res) => {
     const saltRounds = 10;
     const hashedClaveAcceso = await bcrypt.hash(claveAcceso, saltRounds);
 
+    // Crear una nueva cuenta de ahorro
     const nuevaCuenta = new CuentaAhorro({
       numeroCuenta,
       documentoCliente,
