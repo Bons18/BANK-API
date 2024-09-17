@@ -1,5 +1,15 @@
 const CuentaAhorro = require('../models/CuentaAhorro');
 
+exports.obtenerCuentas = async (req, res) => {
+  const body = req.body
+  try {
+    const cuentas = CuentaAhorro.find(body)
+    res.status(200).json(cuentas);
+  } catch (error) {
+    res.status(500).json({ mensaje: "Error al obtener la cuentas.", error });
+  }
+};
+
 // Obtener una cuenta por número
 exports.obtenerCuenta = async (req, res) => {
   try {
