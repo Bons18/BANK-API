@@ -3,37 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - API del Banco</title>
-    <link rel="stylesheet" href="login.css">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Iniciar Sesión</h1>
-            <p>Accede a tu cuenta para interactuar con la API del Banco</p>
+            <h1>Iniciar Sesión en la API del Banco</h1>
+            <p>Introduce tus credenciales para acceder.</p>
         </header>
         <main>
-            <div class="login-container">
-                <form action="/login" method="POST" id="loginForm">
-                    <div class="form-group">
-                        <label for="nombreUsuario">Nombre de Usuario:</label>
-                        <input type="text" id="nombreUsuario" name="nombreUsuario" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="estado">Estado:</label>
-                        <select id="estado" name="estado" required>
-                            <option value="activo">Activo</option>
-                            <option value="inactivo">Inactivo</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="cta-button">Iniciar Sesión</button>
-                </form>                
-            </div>
-            <p>¿No tienes una cuenta? <a href="index.html" class="doc-link">Volver a la página principal</a></p>
+            <form action="/login" method="POST" class="login-form">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Iniciar Sesión</button>
+            </form>
         </main>
         <footer>
             <p>&copy; 2024 API del Banco. Todos los derechos reservados.</p>

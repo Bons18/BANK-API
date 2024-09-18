@@ -1,4 +1,4 @@
-/* login.css */
+/* styles.css */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -34,67 +34,38 @@ header p {
     font-size: 1.1em;
 }
 
-main {
-    text-align: center;
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.login-container {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+.login-form label {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+}
+
+.login-form input {
+    padding: 10px;
+    width: 100%;
     max-width: 400px;
-    margin: 0 auto 20px auto;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
 
-.cta-button {
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
+.login-form button {
+    padding: 10px 20px;
     font-size: 1.2em;
     color: #fff;
     background-color: #007bff;
-    border: none;
     border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
     cursor: pointer;
-    margin-top: 10px;
+    border: none;
 }
 
-.cta-button:hover {
+.login-form button:hover {
     background-color: #0056b3;
-}
-
-.doc-link {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.doc-link:hover {
-    text-decoration: underline;
 }
 
 footer {
