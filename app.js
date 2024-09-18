@@ -17,6 +17,7 @@ app.use(express.static('public'));
 app.use('/api/clientes', require('./routes/clientes'));
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/cuentas', require('./routes/cuentasAhorro'));
+app.use('/api/auth', require('./routes/auth')); 
 
 // Ruta principal
 app.get('/', (req, res) => {
