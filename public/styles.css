@@ -34,6 +34,11 @@ body {
     font-weight: 600;
 }
 
+.header i {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
 .welcome-message {
     font-size: 1.2em;
     margin-top: 10px;
@@ -56,6 +61,10 @@ body {
     font-size: 2em;
     margin: 20px 0;
     font-weight: 600;
+}
+
+.info i {
+    margin-right: 8px;
 }
 
 .info p {
@@ -83,6 +92,10 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.cta-button i {
+    margin-right: 8px;
+}
+
 .cta-button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
@@ -92,6 +105,10 @@ body {
 .doc-link {
     color: #007bff;
     text-decoration: none;
+}
+
+.doc-link i {
+    margin-right: 8px;
 }
 
 .doc-link:hover {
