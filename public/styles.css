@@ -34,38 +34,45 @@ header p {
     font-size: 1.1em;
 }
 
-.login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main {
+    text-align: center;
 }
 
-.login-form label {
-    margin: 10px 0 5px;
-    font-size: 1.2em;
-}
-
-.login-form input {
-    padding: 10px;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.info {
     margin-bottom: 20px;
 }
 
-.login-form button {
+.info p {
+    font-size: 1.1em;
+}
+
+.button-container {
+    margin: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    margin: 10px;
     padding: 10px 20px;
     font-size: 1.2em;
     color: #fff;
     background-color: #007bff;
     border-radius: 5px;
-    cursor: pointer;
-    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.login-form button:hover {
+.cta-button:hover {
     background-color: #0056b3;
+}
+
+.doc-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.doc-link:hover {
+    text-decoration: underline;
 }
 
 footer {
@@ -74,4 +81,44 @@ footer {
     border-top: 1px solid #ddd;
     margin-top: 20px;
     font-size: 0.9em;
+}
+
+/* Estilos específicos para el formulario de inicio de sesión */
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.login-form button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
 }
