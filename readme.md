@@ -152,3 +152,49 @@ Si deseas contribuir al proyecto, por favor, envía un pull request o abre un is
 
 ¡Gracias por usar nuestra API!
 
+--------
+
+1. Clientes:
+
+POST - Crear un cliente
+URL: /api/clientes
+Método: POST
+Descripción: Crea un nuevo cliente.
+Cuerpo:
+
+Copiar código
+{
+  "documentoCliente": "123456789",
+  "nombreCompleto": "Juan Pérez",
+  "celular": "555123456",
+  "fechaNacimiento": "1990-01-01"
+}
+
+2. Usuarios:
+
+POST - Crear un usuario
+URL: /api/usuarios
+Método: POST
+Descripción: Crea un nuevo usuario.
+Cuerpo:
+
+{
+  "nombreUsuario": "juanperez",
+  "password": "password123",
+  "estado": "activo"
+}
+
+3. Cuentas de Ahorro:
+POST - Crear una cuenta
+URL: /api/cuentas
+Método: POST
+Descripción: Crea una nueva cuenta de ahorro.
+Cuerpo:
+
+{
+  "numeroCuenta": "00012345",
+  "documentoCliente": "123456789",
+  "fechaApertura": "2024-01-01",
+  "saldo": 5000,
+  "claveAcceso": "1234"
+}

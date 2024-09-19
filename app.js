@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // Importa el paquete cors
 const connectDB = require('./config/db');
 require('dotenv').config();
 
@@ -9,6 +10,11 @@ connectDB();
 
 // Middleware para analizar JSON
 app.use(express.json());
+
+// Configurar CORS
+app.use(cors({
+    origin: 'http://localhost:5173' // Permite solicitudes desde este origen (ajusta según tu entorno de desarrollo)
+}));
 
 // Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static('public'));
