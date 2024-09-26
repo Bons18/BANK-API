@@ -11,9 +11,11 @@ connectDB();
 // Middleware para analizar JSON
 app.use(express.json());
 
-// Configurar CORS
+// Configurar CORS para permitir varios orígenes
 app.use(cors({
-    origin: 'http://localhost:5173' // Permite solicitudes desde este origen (ajusta según tu entorno de desarrollo)
+    origin: ['http://localhost:5173', 'http://localhost:3000'], // Permite solicitudes desde estos orígenes
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
+    credentials: true, // Permitir credenciales (cookies, etc.)
 }));
 
 // Servir archivos estáticos desde la carpeta 'public'
