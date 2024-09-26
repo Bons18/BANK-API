@@ -17,7 +17,8 @@ app.use(cors({
         'http://localhost:5173',   // Permite solicitudes desde este origen
         'http://localhost:3000',    // Permite solicitudes desde este origen
         'http://192.168.1.18:3000', // Permite solicitudes desde este origen
-        'http://192.168.56.1:3000'  // Permite solicitudes desde este origen
+        'http://192.168.56.1:3000', // Permite solicitudes desde este origen
+        'https://consumo-api-cpcr.onrender.com' // Permite solicitudes desde este origen
     ], 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
     credentials: true, // Permitir credenciales (cookies, etc.)
