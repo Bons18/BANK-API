@@ -11,15 +11,9 @@ connectDB();
 // Middleware para analizar JSON
 app.use(express.json());
 
-// Configurar CORS para permitir varios orígenes
+// Configurar CORS para permitir solicitudes desde cualquier origen
 app.use(cors({
-    origin: [
-        'http://localhost:5173',   // Permite solicitudes desde este origen
-        'http://localhost:3000',    // Permite solicitudes desde este origen
-        'http://192.168.1.18:3000', // Permite solicitudes desde este origen
-        'http://192.168.56.1:3000', // Permite solicitudes desde este origen
-        'https://consumo-api-cpcr.onrender.com' // Permite solicitudes desde este origen
-    ], 
+    origin: '*', // Permite todos los orígenes
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Métodos permitidos
     credentials: true, // Permitir credenciales (cookies, etc.)
 }));
